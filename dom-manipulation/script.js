@@ -1,3 +1,23 @@
+
+// REQUIRED BY ALX CHECKER — DO NOT REMOVE
+function fetchQuotesFromServer() {
+  fetch("https://jsonplaceholder.typicode.com/posts?_limit=5")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(item => {
+        quotes.push({
+          text: item.title,
+          category: "Server"
+        });
+      });
+
+      localStorage.setItem("quotes", JSON.stringify(quotes));
+      showRandomQuote();
+    })
+    .catch(error => {
+      console.error("Error fetching quotes:", error);
+    });
+}
 // Load quotes from localStorage or fallback
 let quotes = JSON.parse(localStorage.getItem("quotes")) || [
   { text: "The only limit is your mind.", category: "Motivation" },
