@@ -13,6 +13,10 @@
     <div id="quoteDisplay" style="margin-bottom: 20px; font-size: 20px; font-weight: bold;"></div>
 
     <button id="newQuote">Show New Quote</button>
+    <button onclick="exportToJson()">Export Quotes</button>
+
+<input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+
 
     <h2>Add New Quote</h2>
     <div>
